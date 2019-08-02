@@ -1,4 +1,4 @@
-# Sign 'Login do ambiente 'termux os'
+# Sign 'Login do ambiente TERMUX ou derivados do DEBIAN
 
 
 ![Image description](https://github.com/Oll1v3r/Sign/raw/master/config/img/logo-1.png)
