@@ -1,7 +1,7 @@
 # Sign 'Login do ambiente 'termux os'
 
 
-[Image description](https://github.com/Oll1v3r/Sign/raw/master/config/img/ensign-1.png)
+![Image description](https://github.com/Oll1v3r/Sign/raw/master/config/img/ensign-1.png)
 
  
 Instalação
