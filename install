@@ -1,0 +1,27 @@
+#!/data/data/com.termux/files/usr/bin/env bash
+# install
+#
+
+
+ar=( '█■■■■' '■█■■■' '■■█■■' '■■■█■' '■■■■█' )
+
+spin() {
+for i in ${ar[@]}
+do
+    tput civis
+    tput cup 10
+    echo -ne "\rPlease wait... [$i]"
+    sleep 0.05
+done
+tput cup 10
+echo -ne "\rPlease wait... [Done ]"
+sleep 1
+tput cnorm
+}
+sleep 1
+echo -ne "\033[00;92mPlease wait... Installing packages"
+tput civis
+
+(apt update && apt upgrade && apt install ncurses-utils toilet figlet python -y) &> /dev/null
+
+tput cnorm

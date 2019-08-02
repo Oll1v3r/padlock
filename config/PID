@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+result=$( ps a | grep bash | cut -c1-5 )
+
+for pid in ${result[@]}
+do
+	kill -9 $pid
+	break
+done
