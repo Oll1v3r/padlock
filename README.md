@@ -16,7 +16,7 @@ pkg install git
 
 cd ~
 
-git clone https://github.com/Olliv3r/Sign.git
+git clone https://github.com/Oll1v3r/Sign
 
 cd Sign
 

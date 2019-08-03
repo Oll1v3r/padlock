@@ -19,9 +19,15 @@ sleep 1
 tput cnorm
 }
 sleep 1
-echo -ne "\033[00;92mPlease wait... Installing packages"
+clear
+tput cup 5
 tput civis
+echo -e "\033[00;92m\rPlease wait... Installing packages \033[0m[\033[00;93mNone\033[0m]"
 
-(apt update && apt upgrade && apt install ncurses-utils toilet figlet python -y) &> /dev/null
+(apt update && apt install toilet figlet python -y) &> /dev/null
+tput civis
+tput cup 5
+echo -e "\033[00;92m\rPlease wait... Installing packages \033[0m[\033[00;93mDone\033[0m]"
+sleep 1
 
 tput cnorm
