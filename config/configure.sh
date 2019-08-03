@@ -30,14 +30,14 @@ then
 
 		if test -e ~/.profile ; then
 			for linha in ~/.profile;do
-				echo "Sign" > ~/.profile
+				echo "Sign" >> ~/.profile
 				break
 			done
 
 		elif test ! -e ~/.profile ; then
 			touch ~/.profile
 			for linha in ~/.profile;do
-				echo "Sign" > ~/.profile
+				echo "Sign" >> ~/.profile
 				break
 			done
 		fi
@@ -61,7 +61,7 @@ then
 		elif test ! -e ~/.profile ; then
 			touch ~/.profile
 			for linha in ~/.profile;do
-				echo "Sign" > ~/.profile
+				echo "Sign" >> ~/.profile
 				break
 			done
 		fi

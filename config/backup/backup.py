@@ -186,6 +186,7 @@ def main():
                                     print("    %sLOADING... %s[%sdone%s] %s" % (green, darkgreen, yellow, darkgreen, white))
                                     system("%s" % (visivel))
                                     exit()
+
                                     
                     while2()
     while1()
