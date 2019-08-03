@@ -1,12 +1,17 @@
 #!/usr/bin/env python
 # desc: sign
 # autor: olive
-
-
+# -*- coding: utf-8 -*-
 
 from os import system, path
 from time import sleep
 from optparse import OptionParser
+from sys import version
+
+
+
+#if (version[0:3] == '3.7'):
+ #   print("Disponivel apenas na versao 3.7 do python3")
 
 
 def banner():
@@ -19,7 +24,7 @@ parse = OptionParser()
 
 parse.add_option('--setup-login', '-s', help='Configura login para um tipo de sistema, termux e derivados do debian',  dest='os', metavar='OS')
 parse.add_option('--remove-login', '-r', help='Remove configuracao de login', dest='remove', metavar='name-tool')
-
+parse.add_option('--list', '-l', help='Lista os sistemas disponiveis', dest='list', metavar='LIST', default=4, type=str)
 
 (args, options) = parse.parse_args()
 
@@ -27,6 +32,8 @@ parse.add_option('--remove-login', '-r', help='Remove configuracao de login', de
 rm = "rm -rf $PREFIX/lib/python3.7/Sign/ && rm $PREFIX/bin/Sign && rm ~/.profile "
 
 RM = "rm -rf /usr/lib/python3/dist-packages/Sign/ && rm /usr//bin/Sign  && rm ~/.profile"
+
+distribuicoes = ['debian', 'ubuntu', 'kali', 'parrot']
 
 if not args.os and not args.remove:
     banner()
@@ -53,7 +60,7 @@ else:
                     print("\033[01;91mVocê não possui sistema termux\033[0m")
                     sleep(1)
         
-        elif args.os == "ubuntu":
+        elif args.os == "ubuntu" or args.os in distribuicoes:
             if path.exists('/usr/lib/python3/dist-packages/Sign') == True:
                 print("\033[01;91mExiste uma configuração em andamento\033[1;91m! \033[0mobs\033[1;91m!\033[0m, remova a configuração atual")
                 sleep(1)
@@ -75,6 +82,7 @@ else:
                     exit()
             else:
                 print("\033[00;92mInvalido %s\033[0m" % (args.os))
+    
 
 
     # opcao de remocao
@@ -140,7 +148,6 @@ else:
 
             else:
                     print("Você não possui um sistema debian ou derivado")
-
 
         else:
             print("\033[01;91mInvalido %s\033[0m" % (args.remove))
