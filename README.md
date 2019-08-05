@@ -1,4 +1,4 @@
-# Sign 'Login do ambiente TERMUX ou derivados do DEBIAN
+# Sign Login para sistema TERMUX ou derivados do DEBIAN
 
 
 ![Image description](https://github.com/Oll1v3r/Sign/raw/master/config/img/logo-1.png)
@@ -22,17 +22,19 @@ cd Sign
 
 bash install
 
-Conclui
------
+
+Verifique sistemas disponiveis
+----
+	python3 sign.py --list=dd
 
 
-
+Verifique que sistema possui
+----
+	python3 sign.py --indent-os=os
 
 Login padrão
 ----
-
-
-O login por padrão vem com usuario 'oliveobom205' e senha 'modoeviilo205'
+	*O login por padrão vem com usuario 'oliveobom205' e senha 'modoeviilo205'
 
 
 
