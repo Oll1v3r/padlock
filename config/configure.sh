@@ -14,6 +14,7 @@ dep='exec /data/data/com.termux/files/usr/lib/python3.7/Sign/config/PID'
 
 if [ -d $dir_t ]
 then
+	mkdir -p configure
 	cat Sign.py > configure/Sign
 	chmod 700 configure/Sign
 

@@ -24,6 +24,13 @@ __autor__ = """\
 """
 
 
+if path.exists('config/configure') == False:
+    system('mkdir -p config/configure/')
+
+elif path.exists('config/configure') == True:
+    pass
+
+
 def banner():
     system('clear && figlet -f lean SIGN')
 

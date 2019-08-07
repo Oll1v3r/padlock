@@ -14,6 +14,7 @@ dep='exec /usr/lib/python3.7/Sign/config/PID'
 
 if [ -d $dir_t ]
 then
+
 	cat Sign.py > configure/Sign
 	chmod 700 configure/Sign
 

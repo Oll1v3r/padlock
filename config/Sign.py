@@ -1,6 +1,4 @@
 #!/data/data/com.termux/files/usr/bin/env python3
-
-
 # Descricao: login do termux
 # Autor: olive
 
@@ -150,8 +148,8 @@ clean = 'tput clear'
 
 
 # obs! login padrao, pode ser alterado por você
-USUARIO = "rootrootroot"
-SENHA = "toortoortoor"
+USUARIO = "oliveobom205"
+SENHA = "modoevilo205"
 
 # DICA! pressionar 'CTR+4' em caso de esquecimento dos dados de login
 
