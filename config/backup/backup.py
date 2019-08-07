@@ -62,15 +62,90 @@ def janela2():
     """ % (blue, blue, red, blue, blue, red, blue, blue, red, blue, blue, white, blue, blue, darkgreen, cyan, red, username, blue, blue, white, blue, blue, darkgreen, cyan, blue, blue, white, blue, blue, white, blue, blue))
 
 
+
+def janela3():
+    system('clear')
+    print("""
+
+  %s┌──────────────────────────────────────────────────────────────┐
+  %s│ %s██╗     ██╗███╗   ██╗██╗   ██╗██╗  ██╗     ██████╗ ███████╗ %s │
+  %s│ %s██║     ██║████╗  ██║██║   ██║╚██╗██╔╝    ██╔═══██╗██╔════╝  %s│
+  %s│ %s██║     ██║██╔██╗ ██║██║   ██║ ╚███╔╝     ██║   ██║███████╗  %s│
+  %s│ %s██║     ██║██║╚██╗██║██║   ██║ ██╔██╗     ██║   ██║╚════██║  %s│
+  %s│ %s███████╗██║██║ ╚████║╚██████╔╝██╔╝ ██╗    ╚██████╔╝███████║  %s│
+  %s│ %s╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝     ╚═════╝ ╚══════╝  %s│
+  %s│                                                              %s│
+  %s│                                                              %s│
+  %s│     %sUser Name %s:                                              %s│
+  %s│                                                              %s│
+  %s│     %sPassword  %s:                                              %s│
+  %s│                                                              %s│
+  %s│                                                              %s│
+  %s╘──────────────────────────────────────────────────────────────┘
+
+  """ % (darkblue, \
+        darkblue, red, darkblue, \
+        darkblue, red, darkblue, \
+        darkblue, red, darkblue, \
+        darkblue, red, darkblue, \
+        darkblue, red, darkblue, \
+        darkblue, red, darkblue, \
+        darkblue, darkblue, \
+        darkblue, darkblue, \
+        darkblue, darkgreen, cyan, darkblue, \
+        darkblue, darkblue, \
+        darkblue, darkgreen, cyan, darkblue, \
+        darkblue, darkblue, \
+        darkblue, darkblue, \
+        darkblue
+        ))
+
+def janela4():
+    system('clear')
+    print("""
+
+  %s┌──────────────────────────────────────────────────────────────┐
+  %s│ %s██╗     ██╗███╗   ██╗██╗   ██╗██╗  ██╗     ██████╗ ███████╗ %s │
+  %s│ %s██║     ██║████╗  ██║██║   ██║╚██╗██╔╝    ██╔═══██╗██╔════╝  %s│
+  %s│ %s██║     ██║██╔██╗ ██║██║   ██║ ╚███╔╝     ██║   ██║███████╗  %s│
+  %s│ %s██║     ██║██║╚██╗██║██║   ██║ ██╔██╗     ██║   ██║╚════██║  %s│
+  %s│ %s███████╗██║██║ ╚████║╚██████╔╝██╔╝ ██╗    ╚██████╔╝███████║  %s│
+  %s│ %s╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝     ╚═════╝ ╚══════╝  %s│
+  %s│                                                              %s│    
+  %s│                                                              %s│
+  %s│     %sUser Name %s: %s%s                                 %s│
+  %s│                                                              %s│
+  %s│     %sPassword  %s:                                              %s│
+  %s│                                                              %s│
+  %s│                                                              %s│
+  %s╘──────────────────────────────────────────────────────────────┘
+""" % (darkblue, \
+        darkblue, red, darkblue, \
+        darkblue, red, darkblue, \
+        darkblue, red, darkblue, \
+        darkblue, red, darkblue, \
+        darkblue, red, darkblue, \
+        darkblue, red, darkblue, \
+        darkblue, darkblue, \
+        darkblue, darkblue, \
+        darkblue, darkgreen, cyan, red, username, darkblue, \
+        darkblue, darkblue, \
+        darkblue, darkgreen, cyan, darkblue, \
+        darkblue, darkblue, \
+        darkblue, darkblue, \
+        darkblue
+        ))
+
+
 # tamanhos e margem do cursor
 invisivel = 'tput civis'
 visivel = 'tput cnorm'
-tamanhoU = 'tput cup 7 21'
-tamanhoP = 'tput cup 9 21'
-tamanhoL = 'tput cup 15'
-tamanhoF = 'tput cup 16'
-tamanhoEU = 'tput cup 8 40'
-tamanhoEP = 'tput cup 10 40'
+tamanhoU = 'tput cup 11 20'
+tamanhoP = 'tput cup 13 20'
+tamanhoL = 'tput cup 20'
+tamanhoF = 'tput cup 21'
+tamanhoEU = 'tput cup 12 40'
+tamanhoEP = 'tput cup 14 40'
 clean = 'tput clear'
 
 
@@ -116,7 +191,7 @@ def loading():
 def main():
     
     def while1():
-        janela1()
+        janela3()
         posicaoCursorU()
         system('%s' % (visivel))
         u()
@@ -150,7 +225,7 @@ def main():
                 else:
                 
                     def while2():
-                        janela2()
+                        janela4()
                         posicaoCursorP()
                         system("%s" % (visivel))
                         p()
@@ -183,7 +258,7 @@ def main():
                                     loading()
                                     system("%s" % (invisivel))
                                     system("%s" % (tamanhoF))
-                                    print("    %sLOADING... %s[%sdone%s] %s" % (green, darkgreen, yellow, darkgreen, white))
+                                    print("    %sLOADING... %s[%sDone%s] %s" % (green, darkgreen, yellow, darkgreen, white))
                                     system("%s" % (visivel))
                                     exit()
 
