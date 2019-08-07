@@ -1,6 +1,4 @@
 #!/data/data/com.termux/files/usr/bin/env python3
-
-
 # Descricao: login do termux
 # Autor: olive
 
