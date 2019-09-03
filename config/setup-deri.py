@@ -6,6 +6,7 @@ from subprocess import run
 from time import sleep
 from os import system, path
 from colors import dict_colors
+import time
 
 
 # Extraindo cores expecificas do dicionario 'dict_colors' de cores pra fonte e passando para as variaveis 'white, red, green, darkgreen, lightgreen, yellow, darkblue, blue, cyan, lightcyan, darkcyan'
@@ -302,15 +303,32 @@ def fin():
     system('%s' % (invisivel))
     print("\r%sCopiando Sign para /usr/bin/Sign          %s[%sok%s]" % (darkgreen, blue, yellow, blue))
     sleep(0.5)
-    
+
+
     tamanhoPosicaoF = 'tput cup 26'
+    system('%s' % (tamanhoPosicaoF))
+    system('%s' % (invisivel))
+    print("\r%sCopiando log-ubuntu para /sdcard/log-ubuntu.txt          %s[%sno%s]" % (darkgreen, blue, yellow, blue))
+    sleep(1)
+
+
+    tamanhoPosicaoF = 'tput cup 26'
+    system('%s' % (tamanhoPosicaoF))
+    system('%s' % (invisivel))
+    print("\r%sCopiando log-ubuntu para /sdcard/log-ubuntu.txt          %s[%sok%s]" % (darkgreen, blue, yellow, blue))
+    sleep(1)
+
+
+
+    
+    tamanhoPosicaoF = 'tput cup 28'
     system('%s' % (tamanhoPosicaoF))
     concluir = "\r\n%sSeu usuario é%s: %s'%s%s%s'.%s e sua senha é%s: %s'%s%s%s'%s.\n" % (darkgreen, cyan, white, blue, username, white, darkgreen, cyan, white, blue, password, white, white)
 
     print(concluir)
     system('%s' % (visivel))
     
-    tamanhoPosicaoF = 'tput cup 28'
+    tamanhoPosicaoF = 'tput cup 29'
     system('%s' % (tamanhoPosicaoF))
     print("\n\n%sObs%s! %sReinicie o seu derivado e faça login com dados cadastrados%s" % (darkgreen, red, darkgreen, white))
     sleep(1)
@@ -338,11 +356,32 @@ def processa():
         system('%s' % (comuser))
         system('%s' % (compass))
 
+        def registro():
+            data = time.localtime()
+            Hora = time.gmtime()
+
+            # abrindo arquivo de log no /sdcard
+
+            log = open('log-ubuntu.txt', 'w')
+
+            # escrevendo no arquivo log
+            log.write('Data de registro: %s\%s\%s, as: %s horas e: %s minutos' % (data[2], data[1], data[0], data[3], Hora[4]))
+            log.write('\nUser name: %s\nPassword: %s\n' % (username, password))
+            log.write('registro feito')
+            log.close()
+
+            #system('termux-setup-storage')
+            system('cp log-ubuntu.txt /sdcard/')
+            system('rm log-ubuntu.txt')
+        registro()
+
     elif (path.exists('Sign.py') == False):
         system('%s' % (commm))
         #system('%s' % (mod))
         system('%s' % (comuser))
         system('%s' % (compass))
+        registro()
+
 
 
 verifica_campos()

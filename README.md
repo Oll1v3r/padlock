@@ -23,6 +23,11 @@ cd Sign
 bash install
 
 
+Teste o script login antes de configurar login
+----
+	python3 sign.py --view-login=login
+
+
 Verifique sistemas disponiveis
 ----
 	python3 sign.py --list=dd

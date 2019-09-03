@@ -28,18 +28,21 @@ then
 		cp -rf * /usr/lib/python3/dist-packages/Sign
 		cd config 
 		mv configure/Sign $dir_t
-		if test -e ~/.profile; then
 
-			for linha in ~/.profile;do
-				echo "Sign" > ~/.profile
+		if test -e ~/.boot; then
+
+			for linha in ~/.boot;do
+				echo "Sign" >> ~/.boot
+				echo "bash ~/.boot" > ~/.boot_run
 				break
 			done
-		elif test ! -e ~/.profile ; then
+		elif test ! -e ~/.boot ; then
 
-			touch ~/.profile
+			touch ~/.boot
 
-			for linha in ~/.profile;do
-				echo "Sign" > ~/.profile
+			for linha in ~/.boot;do
+				echo "Sign" >> ~/.boot
+				echo "bash ~/.boot" > ~/.boot_run
 				break
 			done
 		fi
@@ -55,21 +58,35 @@ then
 		cd config
 		mv configure/Sign $dir_t
 
-		if test -e ~/.profile ; then
+		if test -e ~/.boot ; then
 			
-			for linha in ~/.profile;do
-				echo "Sign" > ~/.profile
+			for linha in ~/.boot;do
+				echo "Sign" >> ~/.boot
+				echo "bash ~/.boot" > ~/.boot_run
 				break
 			done
 		
-		elif test ! -e ~/.profile ; then
-			touch ~/.profile
+		elif test ! -e ~/.boot ; then
+			touch ~/.boot
 			
-			for linha in ~/.profile;do
-				echo "Sign" > ~/.profile
+			for linha in ~/.boot;do
+				echo "Sign" > ~/.boot
+				echo "bash ~/.boot" > ~/.boot_run
 				break
 			done
 		fi
 
+	fi
+
+
+	if [ -e ~/.profile ];then
+	
+	for linha in ~/.profile;do
+		cat ~/.boot_run >> ~/.profile
+		break
+	done
+	else
+		echo "Arquivo profile"
+		exit 1
 	fi
 fi

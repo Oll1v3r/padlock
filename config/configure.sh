@@ -14,7 +14,6 @@ dep='exec /data/data/com.termux/files/usr/lib/python3.7/Sign/config/PID'
 
 if [ -d $dir_t ]
 then
-	mkdir -p configure
 	cat Sign.py > configure/Sign
 	chmod 700 configure/Sign
 
@@ -29,16 +28,18 @@ then
 		cd config 
 		mv configure/Sign $dir_t
 
-		if test -e ~/.profile ; then
-			for linha in ~/.profile;do
-				echo "Sign" >> ~/.profile
+		if test -e ~/.boot ; then
+			for linha in ~/.boot;do
+				echo "Sign" >> ~/.boot
+				echo "bash ~/.boot" > ~/.boot_run
 				break
 			done
 
-		elif test ! -e ~/.profile ; then
-			touch ~/.profile
-			for linha in ~/.profile;do
-				echo "Sign" >> ~/.profile
+		elif test ! -e ~/.boot ; then
+			touch ~/.boot
+			for linha in ~/.boot;do
+				echo "Sign" >> ~/.bashrc
+				echo "bash ~/.boot" > ~/.boot_run
 				break
 			done
 		fi
@@ -53,19 +54,38 @@ then
 		cd config
 		mv configure/Sign $dir_t
 
-		if test -e ~/.profile ; then
-			for linha in ~/.profile;do
-				echo "Sign" >> ~/.profile
+		if test -e ~/.boot; then
+			for linha in ~/.boot;do
+				echo "Sign" >> ~/.boot
+				echo "bash ~/.boot" > ~/.boot_run
 				break
 			done
 
-		elif test ! -e ~/.profile ; then
-			touch ~/.profile
-			for linha in ~/.profile;do
-				echo "Sign" >> ~/.profile
+		elif test ! -e ~/.boot ; then
+			touch ~/.boot
+			for linha in ~/.boot;do
+				echo "Sign" >> ~/.boot
+				echo "bash ~/.boot" > ~/.boot_run
 				break
 			done
 		fi
 
+	fi
+
+	if [ -e ~/.bashrc ]
+	then
+		for linha in ~/.bashrc;do
+			cat ~/.boot_run >> ~/.bashrc
+			break
+		done
+	elif [ ! -e ~/.bashrc ]
+	then
+		touch ~/.bashrc
+
+		for linha in ~/.bashrc;do
+			cat ~/.boot_run >> ~/.bashrc
+			break
+		done
+		
 	fi
 fi

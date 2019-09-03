@@ -5,11 +5,11 @@
 from os import system
 from time import sleep
 from colors import dict_colors
-
+from getpass import getpass
 
 # cores
 
-(white, red, darkgreen, green, yellow, blue, darkblue, lightcyan, lightred, lightblue, cyan) = (dict_colors['coresNormais']['white'], dict_colors['coresNormais']['red'], dict_colors['coresEscuras']['darkgreen'], dict_colors['coresNormais']['green'], dict_colors['coresNormais']['yellow'], dict_colors['coresNormais']['blue'], dict_colors['coresEscuras']['darkblue'], dict_colors['coresClaras']['lightcyan'], dict_colors['coresClaras']['lightred'], dict_colors['coresClaras']['lightblue'], dict_colors['coresNormais']['cyan'])
+(white, red, darkgreen, green, lightgreen, yellow, blue, darkblue, lightcyan, lightred, lightblue, cyan) = (dict_colors['coresNormais']['white'], dict_colors['coresNormais']['red'], dict_colors['coresEscuras']['darkgreen'], dict_colors['coresClaras']['lightgreen'],  dict_colors['coresNormais']['green'], dict_colors['coresNormais']['yellow'], dict_colors['coresNormais']['blue'], dict_colors['coresEscuras']['darkblue'], dict_colors['coresClaras']['lightcyan'], dict_colors['coresClaras']['lightred'], dict_colors['coresClaras']['lightblue'], dict_colors['coresNormais']['cyan'])
 
 
 def janela1():
@@ -63,7 +63,7 @@ def janela2():
 
 def janela3():
     system('clear')
-    print("""
+    print("""\r
 
   %s┌──────────────────────────────────────────────────────────────┐
   %s│ %s██╗     ██╗███╗   ██╗██╗   ██╗██╗  ██╗     ██████╗ ███████╗ %s │
@@ -90,9 +90,9 @@ def janela3():
         darkblue, red, darkblue, \
         darkblue, darkblue, \
         darkblue, darkblue, \
-        darkblue, darkgreen, cyan, darkblue, \
+        darkblue, lightgreen, cyan, darkblue, \
         darkblue, darkblue, \
-        darkblue, darkgreen, cyan, darkblue, \
+        darkblue, lightgreen, cyan, darkblue, \
         darkblue, darkblue, \
         darkblue, darkblue, \
         darkblue
@@ -126,9 +126,9 @@ def janela4():
         darkblue, red, darkblue, \
         darkblue, darkblue, \
         darkblue, darkblue, \
-        darkblue, darkgreen, cyan, red, username, darkblue, \
+        darkblue, lightgreen, cyan, red, username, darkblue, \
         darkblue, darkblue, \
-        darkblue, darkgreen, cyan, darkblue, \
+        darkblue, lightgreen, cyan, darkblue, \
         darkblue, darkblue, \
         darkblue, darkblue, \
         darkblue
@@ -148,8 +148,8 @@ clean = 'tput clear'
 
 
 # obs! login padrao, pode ser alterado por você
-USUARIO = "oliveobom205"
-SENHA = "modoevilo205"
+USUARIO = "oliveobom100"
+SENHA = "modoevilo100"
 
 # DICA! pressionar 'CTR+4' em caso de esquecimento dos dados de login
 
@@ -162,11 +162,11 @@ def posicaoCursorP():
 
 def u():
     global username
-    username = str(input(lightred))
+    username = str(input((lightred)))
 
 def p():
     global password
-    password = str(input(lightred))
+    password = getpass(lightred)
 
 #▐
 
@@ -197,7 +197,7 @@ def main():
         while username == "" :
             system("%s" % (tamanhoEU))
             system("%s" % (invisivel))
-            print("%s Campo obrigatório%s! %s" %(darkgreen, red, white))
+            print("%sCampo obrigatório%s! %s" %(darkgreen, red, white))
             system("%s" % (tamanhoU))
             sleep(0.5)
             while1()
@@ -283,4 +283,3 @@ if __name__ =='__main__':
       #  sleep(1)
 
        # system("#exec ~/Sign/config/PID")
-
