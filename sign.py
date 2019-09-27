@@ -26,7 +26,7 @@ __autor__ = """\
 # checar se o shell é /bin/bash
 if path.exists('/data/data/com.termux/files/home/.termux/') == True:
     system('clear')
-    print("Shell '\033[01;91mzsh\033[0m' detectado !, Disponibilidade apenas Shell 'BASH'")
+    print("\033[00;91mERRO !\n\033[00;92mShell \033[0m'\033[01;91mzsh\033[0m' \033[00;92mFoi detectado !, Disponibilidades apenas para Shell \033[0m'\033[01;91mBASH\033[0m', \033[00;92mem breve estará disponível  essa compatiblidade.\033[0m")
     exit()
     
 
