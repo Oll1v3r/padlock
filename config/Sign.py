@@ -148,8 +148,8 @@ clean = 'tput clear'
 
 
 # obs! login padrao, pode ser alterado por você
-USUARIO = "oliveobom100"
-SENHA = "modoevilo100"
+USUARIO = "rootrootroot"
+SENHA = "toortoortoor"
 
 # DICA! pressionar 'CTR+4' em caso de esquecimento dos dados de login
 

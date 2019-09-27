@@ -23,6 +23,12 @@ __autor__ = """\
 ---------------------------------------------------------------
 """
 
+# checar se o shell é /bin/bash
+if path.exists('/data/data/com.termux/files/home/.termux/') == True:
+    system('clear')
+    print("Shell '\033[01;91mzsh\033[0m' detectado !, Disponibilidade apenas Shell 'BASH'")
+    exit()
+    
 
 if path.exists('config/configure') == False:
     system('mkdir -p config/configure/')
