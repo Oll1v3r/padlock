@@ -2,6 +2,7 @@
 # install
 #
 
+(apt update && apt upgrade -y && apt install ncurses-utils -y) &> /dev/null
 
 ar=( '█■■■■' '■█■■■' '■■█■■' '■■■█■' '■■■■█' )
 
