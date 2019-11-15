@@ -48,6 +48,7 @@ tput cnorm
 
 echo -e "\n\nrun '\033[00;92m./sign.py\033[0m' or '\033[00;92mpython sign.py\033[0m'\n"
 else
+	cd ..
 	echo "Termux [+] has not been detected"
 
 fi
