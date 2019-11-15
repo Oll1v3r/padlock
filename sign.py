@@ -14,14 +14,15 @@ from config.funcoes import menu_list_dd
 __autor__ = """\
 ----------------------------------------------------------------
 
-        BY: olive.
-        DUVIDAS: https://t.me/joinchat/IX29FFjo4hwKBMzMI3LxPQ.
-        PAGINA FB: https://www.facebook.com/oliveobom.
-        BLOG: https://olivetech933842787.wordpress.com.
-        Website: https://techmobilesafe.000webhostapp.com/.
+BY: olive.
+DUVIDAS: https://t.me/joinchat/IX29FFjo4hwKBMzMI3LxPQ
+PAGINA FB: https://www.facebook.com/oliveobom
+BLOG: https://olivetech933842787.wordpress.com
+Website: https://techmobilesafe.000webhostapp.com/
 
 ---------------------------------------------------------------
 """
+
 
 # checar se o shell é /bin/bash
 if path.exists('/data/data/com.termux/files/home/.termux/') == True:
@@ -69,6 +70,7 @@ parse.add_option('--view-login', '-v', help='Executa o script apenas para teste'
 rm = "rm -rf $PREFIX/lib/python3.7/Sign/ && rm $PREFIX/bin/Sign && rm ~/.boot && rm -rf ~/.boot_run && sed -i 's|bash ~/.boot|# Deletado arquivo .boot|g' ~/.bashrc && sed -i 's|# Deletado arquivo .boot||g' ~/.bashrc "
 
 RM = "rm -rf /usr/lib/python3/dist-packages/Sign/ && rm /usr//bin/Sign  && rm ~/.boot && rm ~/.boot_run && sed -i 's|bash ~/.boot|# Deletado aqui o arquivo .boot|g' ~/.profile && sed -i 's|# Deletado aqui o arquivo .boot||g' ~/.profile"
+
 distribuicoes = ['ubuntu', 'termux']
 
 if not args.os and not args.remove and not args.list and not args.indent and not args.view:
@@ -88,6 +90,7 @@ else:
             elif path.exists('/data/data/com.termux/files/usr/lib/python3.7/Sign') == False:
 
                 if path.exists('/data/data/com.termux/files/usr/lib/') == True:
+                    system('bash config/os-ident.sh')
                     print("\033[00;92mConfigurando para termux\033[0m")
                     sleep(1)
                     system('cd config && python3 setup.py && bash configure.sh && cd ..')
@@ -107,6 +110,7 @@ else:
             elif path.exists('/usr/lib/python3/dist-packages/Sign') == False:
 
                 if path.exists('/usr/lib/') == True:
+                    system('bash config/os-ident.sh')
                     print("\033[00;92mConfigurando derivado do debian\033[0m")
                     sleep(1)
                     system('cd config && python3 setup-deri.py && bash configure-deri.sh && cd ..')
@@ -221,18 +225,18 @@ else:
     elif args.indent:
         if args.indent[0:2] == "os":
             system('clear')
-            OS = {"ubuntu": "/bin/bash", "termux": "/data/data/com.termux/files/usr/bin/bash"}
+            OS = {"ubuntu": "/bin/bash", "termux": "/data/data/com.termux/lib/libtermux.so"}
             print("\033[00;92mIdentificando OS\033[0m")
             sleep(1)
 
 
             if path.exists(OS['termux']) == True:
-                print("\033[00;92mSeu sistema é termux\033[0m")
+                system('bash config/os-ident.sh')
                 sleep(1)
         
             
             elif path.exists(OS['ubuntu']) == True:
-                print("\033[00;92mSeu sistema é derivado do debian\033[0m")
+                system('bash config/os-ident.sh')
                 sleep(1)
 
             elif path.exists(OS['termux']) == False:
@@ -246,6 +250,8 @@ else:
     elif args.view:
         system('clear')
         if args.view == 'login':
+            system('bash config/os-ident.sh')
+            sleep(1)
             teste()
             system('python3 config/test.py')
 

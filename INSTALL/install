@@ -2,23 +2,36 @@
 # install
 #
 
+if [ -e /data/data/com.termux/lib/libtermux.so ]
+then
+
+clear
+echo Please wait...
 (apt update && apt upgrade -y && apt install ncurses-utils -y) &> /dev/null
 
-ar=( '█■■■■' '■█■■■' '■■█■■' '■■■█■' '■■■■█' )
+echo "Identifying Linux operating system"
+sleep 2
+bash ../config/os-ident.sh
+sleep 3
+ar=( '█■■■■' '■█■■■' '■■█■■' '■■■█■' '■■■■█' '█■■■■' '■█■■■' '■■█■■' '■■■█■' '■■■■█' )
 
 spin() {
+clear
 for i in ${ar[@]}
 do
     tput civis
     tput cup 10
     echo -ne "\rPlease wait... [$i]"
-    sleep 0.05
+    sleep 0.1
 done
 tput cup 10
-echo -ne "\rPlease wait... [Done ]"
+echo -ne "Please wait... [Done ]"
 sleep 1
 tput cnorm
 }
+spin
+echo ""
+
 sleep 1
 clear
 tput cup 5
@@ -32,3 +45,9 @@ echo -e "\033[00;92m\rPlease wait... Installing packages \033[0m[\033[00;93mDone
 sleep 1
 
 tput cnorm
+
+echo -e "\n\nrun '\033[00;92m./sign.py\033[0m' or '\033[00;92mpython sign.py\033[0m'\n"
+else
+	echo "Termux [+] has not been detected"
+
+fi
