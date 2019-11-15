@@ -45,7 +45,7 @@ echo -e "\033[00;92m\rPlease wait... Installing packages \033[0m[\033[00;93mDone
 sleep 1
 
 tput cnorm
-
+cd ..
 echo -e "\n\nrun '\033[00;92mpython3 ./sign.py\033[0m' or '\033[00;92mpython3 sign.py\033[0m'\n"
 
 else
