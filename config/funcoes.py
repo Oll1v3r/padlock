@@ -3,13 +3,13 @@ from time import sleep
 
 def menu_list_dd():
 
-    print("\n\033[01;92mDebian\033[00;93m [\033[00;91mNo\033[00;93m]\033[0m = \033[00;92mDisponível\033[0m\n")
+    print("\n\033[01;92mDebian\033[00;93m [\033[00;94mOk\033[00;93m]\033[0m = \033[00;92mDisponível\033[0m\n")
     sleep(0.3)
     print("\033[01;92mUbuntu\033[00;93m [\033[00;94mOk\033[00;93m]\033[0m = \033[00;92mDisponível\033[0m\n")
     sleep(0.3)
-    print("\033[01;92mKali\033[00;93m [\033[00;91mNo\033[00;93m]\033[0m = \033[00;92mDisponível\033[0m\n")
+    print("\033[01;92mKali\033[00;93m [\033[00;94mOk\033[00;93m]\033[0m = \033[00;92mDisponível\033[0m\n")
     sleep(0.3)
-    print("\033[01;92mParrot\033[00;93m [\033[00;91mNo\033[00;93m]\033[0m = \033[00;92mIndisponível\033[0m\n")
+    print("\033[01;92mParrot\033[00;93m [\033[00;94mOk\033[00;93m]\033[0m = \033[00;92mDisponível\033[0m\n")
     sleep(0.3)
     print("\033[01;92mFedora\033[00;93m [\033[00;91mNo\033[00;93m]\033[0m = \033[00;91mIndisponível\033[0m\n")
     sleep(0.3)
