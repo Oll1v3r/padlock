@@ -71,7 +71,7 @@ rm = "rm -rf $PREFIX/lib/python3.7/Sign/ && rm $PREFIX/bin/Sign && rm ~/.boot &&
 
 RM = "rm -rf /usr/lib/python3/dist-packages/Sign/ && rm /usr//bin/Sign  && rm ~/.boot && rm ~/.boot_run && sed -i 's|bash ~/.boot|# Deletado aqui o arquivo .boot|g' ~/.profile && sed -i 's|# Deletado aqui o arquivo .boot||g' ~/.profile"
 
-distribuicoes = ['ubuntu', 'termux']
+distribuicoes = ['ubuntu', 'debian', 'kali', 'parrot', 'termux']
 
 if not args.os and not args.remove and not args.list and not args.indent and not args.view:
     system('clear && figlet -f lean SIGN')
@@ -102,7 +102,7 @@ else:
                     print("\033[01;91mVocê não possui sistema termux\033[0m")
                     sleep(1)
         
-        elif args.os == "ubuntu" or args.os in distribuicoes:
+        elif args.os == "derived-deb" or args.os in distribuicoes:
             if path.exists('/usr/lib/python3/dist-packages/Sign') == True:
                 print("\033[01;91mExiste uma configuração em andamento\033[1;91m! \033[0mobs\033[1;91m!\033[0m, remova a configuração atual")
                 sleep(1)
@@ -131,6 +131,7 @@ else:
             else:
                 system('clear')
                 print("\033[00;92mInvalido %s\033[0m" % (args.os))
+
     
         elif args.os not in distribuicoes:
             system('clear')

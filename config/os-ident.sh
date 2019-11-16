@@ -10,43 +10,26 @@ FILE=/data/data/com.termux/lib/libtermux.so
 if [ ! -e ${FILE} ]
 then
 
-file="$(cat /etc/os-release)"
+file="$(cat /etc/*release | grep PRETTY | cut -c14-20)"
 
 for lin in $file
 do
 	case $lin in
 		
-		'NAME="Ubuntu"')
-			# echo "Ubuntu detected [+]"
-			# ubuntu=$lin
-
-			for linn in $file
-			do
-				if [ $linn = 'VERSION_ID="18.04"' ]
-				then
-					# echo "Version 18.04"
-
-					for linnn in $file
-					do
-						if [ $linnn = 'VERSION_CODENAME=bionic' ]
-						then
-							echo "Ubuntu Bionic Version 18.04 detected [+]"
-						fi
-					done
-				fi
-			done;;
-
-		'NAME="Debian"')
-			echo "Debian detected [+]"
-			# debian=$lin
+		Ubuntu)
+			echo "Detected Operational System Ubuntu GNU/Linux [+]"
 			;;
-		'NAME="Kali"')
-			echo "Kali detected [+]"
-			# kali=$lin
+
+		Debian)
+			echo "Detected Operational System Debian GNU/Linux [+]"
 			;;
-		'NAME="Parrot"')
-			echo "Parrot detected [+]"
-			# parrot=$lin
+
+		Kali)
+			echo "Detected Operational System Kali GNU/Linux [+]"
+			;;
+
+		Parrot)
+			echo "Detected Operational System Parrot GNU/Linux [+]"
 			;;
 		*)
 	esac
@@ -54,7 +37,7 @@ done
 
 elif [ -e ${FILE} ]
 then
-	echo "Termux Detected [+]"
+	echo "Detected Operational System Termux[+]"
 
 else
 	echo "Error !"
