@@ -90,3 +90,12 @@ Exemplo: remover configuração do ambiente termux
 Exemplo: remover configuração do ambiente derivados do debian
 -----
 	python3 sign.py --remove-login=debian
+
+
+
+Sistemas disponíveis
+-----
+	### 1 Ubuntu
+	### 2 Debian
+	### 3 Kali
+	### 4 Parrot

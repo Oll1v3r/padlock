@@ -177,7 +177,7 @@ else:
                 sleep(0.05)
             
 
-        elif args.remove == "derived-deb" or args.remove in distribucoes:
+        elif args.remove == "derived-deb" or args.remove in distribuicoes:
             if path.exists('/usr/lib/') == True:
                 
                 system('clear')
