@@ -177,7 +177,7 @@ else:
                 sleep(0.05)
             
 
-        elif args.remove == "ubuntu":
+        elif args.remove == "derived-deb" or args.remove in distribucoes:
             if path.exists('/usr/lib/') == True:
                 
                 system('clear')
