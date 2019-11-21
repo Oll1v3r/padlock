@@ -23,6 +23,18 @@ cd Sign
 bash install
 
 
+Instalando no derivados do debian
+----
+	cd Sign
+	cd INSTALL
+	./install_dere_debian.sh
+
+Instalando no android (TERMUX
+----
+	cd Sign
+	cd INSTALL
+	./install
+
 Teste o script login antes de configurar login
 ----
 	python3 sign.py --view-login=login
