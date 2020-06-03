@@ -8,7 +8,7 @@ def painel_1():
         '''
     {0}\n
     AQUI FICA O LOGO OU BANNER
-    
+
     \033[00;93mUsername\033[0m:\033[00;92m
 
     \033[00;93mPassword\033[0m:\033[00;92m
@@ -16,7 +16,7 @@ def painel_1():
     \033[00;92m(\033[00;91m{1}\033[00;92m)
 
 
-    {2}'''.format('_'*30, message, '_'*30))
+    {2}'''.format('_'*42, message, '_'*42))
 
 def painel_2():
     system('clear')
@@ -25,12 +25,13 @@ def painel_2():
     AQUI FICA O LOGO OU BANNER
 
     \033[00;93mUsername\033[0m: \033[00;92m{1}
-                                                               \033[00;93mPassword\033[0m: \033[00;92m
-                                                               \033[00;92m(\033[00;91m{2}\033[00;92m)
+
+    \033[00;93mPassword\033[0m: \033[00;92m
+
+    \033[00;92m(\033[00;91m{2}\033[00;92m)
 
 
-    {3}\n
-        '''.format('_'*30, username_login, message, '_'*30))
+    {3}\n'''.format('_'*42, username_login, message, '_'*42))
 
 
 tamanhoU = 'tput cup 5 14'
