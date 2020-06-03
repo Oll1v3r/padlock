@@ -39,6 +39,7 @@ def listSystem():
 def removeConfig():
     if(path.exists('/data/data/com.termux/files/usr/lib/python3.8/Sign-Ultimate') == True):
         system('rm /data/data/com.termux/files/usr/lib/python3.8/Sign-Ultimate/ -rf')
+        system('rm -rf /data/data/com.termux/files/home/.log-sign && rm /data/data/com.termux/files/home/.bashrc')
         print("Removido com êxito")
     else:
         print("Ja foi removido")

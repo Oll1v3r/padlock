@@ -7,7 +7,8 @@
 from os import system, path
 from time import sleep, localtime
 
-system('clear');
+bash = system
+bash('clear');
 distr = ['termux']
 exist = True
 
@@ -31,6 +32,7 @@ def window():
     system = int(input('Qual seu sistema? => '))
 
     if(system == 1):
+        bash("clear")
         systema = 'termux'
         capture_input_user(systema)
         add_path()
@@ -49,7 +51,7 @@ def window():
     else:
         print('Opção inválida, tente números entre 1 e 5')
 
-def capture_input_user(system):
+def capture_input_user(system="termux"):
     if(system not in distr):
         print('Indisponível para sistema {}'.format(system))
         exit(0)
@@ -60,13 +62,15 @@ def capture_input_user(system):
         username_repeat = input('Digite novamente: ')
 
         while username != username_repeat:
-            capture_input_user(systema)
+            bash('clear')
+            capture_input_user()
         else:
             def capture_input_pass():
                 password = input('Digite uma senha: ')
                 global password_repeat
                 password_repeat = input('Digite novamente: ')
                 while password != password_repeat:
+                    bash("clear")
                     capture_input_pass()
                 else:
                     remove_file_data()
@@ -98,9 +102,16 @@ def add_path():
                 print("Diretório /sdcad não foi encontrado")
                 exit()
             else:
-                system("mv dataLogin.txt /sdcard")
+                system("bash configure.sh")
+                print("Aceite o acesso a memoria interna")
+                system("termux-setup-storage && mv dataLogin.txt /sdcard")
                 print("\033[00;92mConfigurado com êxito\033[0m")
-
+                print("")
+                fileOpenRegist = open('.data.txt','r')
+                fileOpenRegist = list(fileOpenRegist)
+                print("Usuário: %s" % fileOpenRegist[0])
+                print("Senha: %s" % fileOpenRegist[1])
+                print("execute 'exit' e entre novamente para ver o efeito")
     else:
         print("Obs! \033[01;93mExiste uma configuraçäo em andamento, remova primeiro a configuraçäo atual\033[0m")
 
