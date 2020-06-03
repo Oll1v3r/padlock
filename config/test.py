@@ -59,8 +59,8 @@ def loading_login():
     print('')
 
 def login():
-    if(path.exists('.data.txt') == True):
-        open_file = open('.data.txt', 'r')
+    if(path.exists('.data-test.txt') == True):
+        open_file = open('.data-test.txt', 'r')
         open_file = list(open_file)
 
         global message

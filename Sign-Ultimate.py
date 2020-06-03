@@ -2,19 +2,26 @@
 # Sign-Ultimate
 # By: olive
 
-
+# módules important
 from os import system, path
 from time import sleep
 import optparse
 
+# check packages
+bin='/data/data/com.termux/files/usr/bin'
+if(path.exists(bin+'/tput') != True):
+    print("Requer pacote: 'ncurses-utils, execute: apt update && apt install ncurses-utils -y")
+    exit(0)
 # setup of system disponible on sign-ulgimate
 def setupConfig():
     command = 'cd config && python3 setup.py'
     system('{0}'.format(command))
+
 # test of sign-ultimate
 def testConfig():
     command = 'cd config && python3 test.py'
     system(command)
+
 # list of system disponible on sign-ultimate
 def listSystem():
     system = ['Termux', 'Gnuroot', 'Userland', 'Nethunter', 'Linux deploy']
@@ -28,12 +35,27 @@ def listSystem():
             print('\033[01;32m- Disponível => \033[01;93m%s\033[0m' % (sys))
             sleep(0.5)
 
+# function of remove setup of system
 def removeConfig():
     if(path.exists('/data/data/com.termux/files/usr/lib/python3.8/Sign-Ultimate') == True):
         system('rm /data/data/com.termux/files/usr/lib/python3.8/Sign-Ultimate/ -rf')
         print("Removido com êxito")
     else:
         print("Ja foi removido")
+
+# function of identify system operating
+def identify():
+    pwd = "/data/data/com.termux/files/usr/etc/apt"
+    openFileApt = open(pwd+"/sources.list", "r")
+    openFileApt = list(openFileApt)
+    counter = 0
+
+    for link in openFileApt:
+        link = link.rstrip()
+        counter += 1
+        if counter == 2:
+            if(link[4:22] == "https://termux.org"):
+                print("Termux System Operating Android detected (+)")
 
 # opçôes
 parse = optparse.OptionParser()
