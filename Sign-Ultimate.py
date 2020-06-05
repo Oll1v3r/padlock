@@ -11,11 +11,11 @@ import optparse
 bin='/data/data/com.termux/files/usr/bin'
 if(path.exists(bin+'/tput') != True):
     print("Requer pacote: 'ncurses-utils, execute: apt update && apt install ncurses-utils -y")
-    exit(0)
 # setup of system disponible on sign-ulgimate
 def setupConfig():
     command = 'cd config && python3 setup.py'
     system('{0}'.format(command))
+    exit(24)
 
 # test of sign-ultimate
 def testConfig():
@@ -58,15 +58,26 @@ def identify():
             if(link[4:22] == "https://termux.org"):
                 print("Termux System Operating Android detected (+)")
 
+version="v1.9"
+description=' - Sign-Ultimate Configura login simplificado em ambiente Termux Android'
+autor="Feito por: olive - 2019"
+usage="""
+./Sign-Ultimate.py [opçôes]
+./Sign-Ultimate.py -? | -s,--setup | -r,--remove | -t,--test | -l,--list | -i,--identify
+"""
+
 # opçôes
 parse = optparse.OptionParser()
+parse.description = autor+description
+parse.version = version
+parse.usage = usage
 parse.add_option('-?', action='help', help='Mostra ajuda detalhada e sai')
 
 parse.add_option('-s', '--setup', action='store_false', dest='verboseSignSetup', default=True, help='Configura sistema de login')
 
 parse.add_option('-r', '--remove', action='store_false', dest='verboseSignRemove', default=True, help='Remove configuraçäo de login')
 
-parse.add_option('-t', '--test', action='store_false', dest='verboseSignTest', default=True, help='Testa o sistema, serve para testar antes de configurar')
+parse.add_option('-t', '--test', action='store_false', dest='verboseSignTest', default=True, help='Testa o sistema, serve para testar antes de configurar = dados de login {admin,admin}')
 
 parse.add_option('-l', '--list', action='store_false', dest='verboseSignList', default=True, help='Lista quais sistemas estão disponíveis')
 
@@ -85,4 +96,8 @@ elif(options.verboseSignList is not True):
 elif(options.verboseSignIdentify is not True):
     identify()
 else:
+    print("")
+    system('figlet -f future Sign-Ultimate')
+    print("")
+    print("Autor: olive - contate-me @oliveobom pelo chat secreto telegram\n")
     print('Obs! tente -?/-h/--help p/ mais ajuda de Sign-Ultimate')

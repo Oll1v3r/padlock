@@ -9,7 +9,7 @@ from time import sleep, localtime
 
 bash = system
 bash('clear');
-distr = ['termux']
+distr = ['termux', 'gnuroot', 'userland', 'kali nethunter', 'linux deploy']
 exist = True
 
 # verify if the file '.data.txt' exist in ./ and is removid
@@ -21,6 +21,8 @@ def remove_file_data():
 
 # window
 def window():
+    
+    bash('clear')
     print("""
         1) Termux (android)
         2) Gnuroot debian (Android)
@@ -29,57 +31,120 @@ def window():
         5) Linux deploy (android)
     """)
 
-    system = int(input('Qual seu sistema? => '))
+    system = input('Qual seu sistema? => ')
+    
+    global systema
+    systema = system
 
-    if(system == 1):
+    if(system == '1'):
         bash("clear")
         systema = 'termux'
-        capture_input_user(systema)
+        processLogin(systema)
         add_path()
-    elif(system == 2):
+    elif(system == '2'):
         systema = 'gnuroot'
-        capture_input_user(systema)
-    elif(system == 3):
+        processLogin(systema)
+    elif(system == '3'):
         systema = 'userland'
-        capture_input_user(systema)
-    elif(system == 4):
+        processLogin(systema)
+    elif(system == '4'):
         systema = 'kali nethunter'
-        capture_input_user(systema)
-    elif(system == 5):
+        procesLogin(systema)
+    elif(system == '5'):
         systema = 'linux deploy'
-        capture_input_user(systema)
+        processLogin(systema)
+    elif(system == ''):
+        print('\033[01;91mCampo obrigatório\033[0m')
+        sleep(2)
+        window()
     else:
-        print('Opção inválida, tente números entre 1 e 5')
+        print('\033[01;91mOpção inválida, tente números entre 1 e 5\033[0m')
+        sleep(2)
+        window()
 
-def capture_input_user(system="termux"):
+def processLogin(system="termux"):
     if(system not in distr):
-        print('Indisponível para sistema {}'.format(system))
-        exit(0)
+        print('\033[01;91mIndisponível para sistema \033[01;93m({})\033[0m'.format(system))
+        sleep(2)
+        window()
+    # os-1
     elif(system in distr):
-        print("Configurando para sistema: {}".format(system))
-        username = input('Digite um usuário: ')
-        global username_repeat
-        username_repeat = input('Digite novamente: ')
+        pwd = "/data/data/com.termux/files/usr/etc/apt"
+        openFileApt = open(pwd+"/sources.list", "r")
+        openFileApt = list(openFileApt)
+        
+        counter = 0
+        for link in openFileApt:
+            link = link.rstrip()
+            counter += 1
+            # 1
+            if counter == 2:
+                if(link[4:22] == "https://termux.org"):
 
-        while username != username_repeat:
-            bash('clear')
-            capture_input_user()
-        else:
-            def capture_input_pass():
-                password = input('Digite uma senha: ')
-                global password_repeat
-                password_repeat = input('Digite novamente: ')
-                while password != password_repeat:
-                    bash("clear")
-                    capture_input_pass()
+                    print("Configurando para sistema: {}".format(system))
+                    def capture_input_user_var():
+                        global username_repeat
+                        username_repeat = ""
+            
+                        bash('clear')
+                        username = input('Digite um usuário: ')
+                        while username == "":
+                            print("Campo de usuário obrigatório")
+                            sleep(1)
+                            capture_input_user_var()
+                        else:
+                            def capture_input_user_vars():
+                                username_repeat = input('Digite novamente: ')
+                                while username_repeat == "":
+                                    print("Campo de usuário obrigatório")
+                                    sleep(1)
+                                    capture_input_user_vars()
+                                else:
+                                    while username != username_repeat:
+                                        print('! Falha: Dados de usuário não confere')
+                                        sleep(1)
+                                        capture_input_user_var()
+                                    else:
+                                        def capture_input_pass_var():
+                                            global password_repeat
+                                            password_repeat = ""
+
+                                            bash('clear')
+                                            password = input('Digite uma senha: ')
+                                            while password == "":
+                                                print("Campo de senha obrigatório")
+                                                sleep(1)
+                                                capture_input_pass_var()
+                                            else:
+                                                def capture_input_pass_vars():
+                                                    password_repeat = input('Digite novamente: ')
+                                                    while password_repeat == "":
+                                                        print("campo de senha obrigatório")
+                                                        sleep(1)
+                                                        capture_input_pass_vars()
+                                                    else:
+                                                        while password != password_repeat:
+                                                            print('! Falha: Dados de senha não confere')
+                                                            sleep(1)
+                                                            capture_input_pass_var()
+                                                        else:
+                                                            remove_file_data()
+                                                            login_file = open('.data.txt', 'a')
+                                                            login_file.write('{}\n'.format(username_repeat))
+                                                            login_file.write('{}\n'.format(password_repeat))
+                                                            login_file.close()
+
+                                                capture_input_pass_vars()
+                                        capture_input_pass_var()
+
+                            capture_input_user_vars()
+                    capture_input_user_var()
+
                 else:
-                    remove_file_data()
-                    login_file = open('.data.txt', 'a')
-                    login_file.write('{}\n'.format(username_repeat))
-                    login_file.write('{}\n'.format(password_repeat))
-                    login_file.close()
-
-            capture_input_pass()
+                    print("\033[01;91mSeu sistema não possúi \033[00;94m'\033[00;93m%s\033[00;94m'\033[0m" % systema)
+                    exit()
+            # 2
+    # os-2
 
 def add_path():
     if(path.exists('/data/data/com.termux/files/usr/lib/python3.8/Sign-Ultimate') != True):
@@ -99,22 +164,26 @@ def add_path():
             print("\033[00;92m! \033[01;91mErro ao encontrar o arquivo de log\033[0m")
         else:
             if(path.exists('/sdcard/') == False):
-                print("Diretório /sdcad não foi encontrado")
+                print("Diretório /sdcard não foi encontrado")
                 exit()
             else:
                 system("bash configure.sh")
-                print("Aceite o acesso a memoria interna")
+                print("\n\033[00;95mAceite o acesso a memoria interna\033[0m")
                 system("termux-setup-storage && mv dataLogin.txt /sdcard")
                 print("\033[00;92mConfigurado com êxito\033[0m")
                 print("")
                 fileOpenRegist = open('.data.txt','r')
                 fileOpenRegist = list(fileOpenRegist)
-                print("Usuário: %s" % fileOpenRegist[0])
-                print("Senha: %s" % fileOpenRegist[1])
-                print("execute 'exit' e entre novamente para ver o efeito")
+                print("\033[01;93mUsuário\033[0m: \033[00;94m%s\033[0m" % fileOpenRegist[0])
+                print("\033[01;93mSenha\033[0m: \033[00;94m%s\033[0m" % fileOpenRegist[1])
+                print("Execute 'exit' e entre novamente para ver o efeito")
+
+                os = open('.os.txt', 'w')
+                os.write('{}\n'.format(systema))
+                os.close()
     else:
         print("Obs! \033[01;93mExiste uma configuraçäo em andamento, remova primeiro a configuraçäo atual\033[0m")
 
 
-window()
 
+window()

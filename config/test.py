@@ -1,41 +1,40 @@
 from os import system, path
 from time import sleep
+import banners
 
 def painel_1():
-
     system('clear')
-    print(
-        '''
-    {0}\n
-    AQUI FICA O LOGO OU BANNER
+    print('''
+    \033[0m{0}
+    \033[01;92m{1}
 
     \033[00;93mUsername\033[0m:\033[00;92m
 
     \033[00;93mPassword\033[0m:\033[00;92m
 
-    \033[00;92m(\033[00;91m{1}\033[00;92m)
+    \033[00;92m(\033[00;91m{2}\033[00;92m)\033[0m
 
 
-    {2}'''.format('_'*42, message, '_'*42))
+    {3}\033[0m'''.format('_'*42, banners.logo[0], message, '_'*42))
 
 def painel_2():
     system('clear')
-    print(                                                              '''
-    {0}\n
-    AQUI FICA O LOGO OU BANNER
+    print('''
+    \033[0m{0}
+    \033[01;92m{1}
 
-    \033[00;93mUsername\033[0m: \033[00;92m{1}
+    \033[00;93mUsername\033[0m: \033[00;92m{2}
 
     \033[00;93mPassword\033[0m: \033[00;92m
 
-    \033[00;92m(\033[00;91m{2}\033[00;92m)
+    \033[00;92m(\033[00;91m{3}\033[00;92m)\033[0m
 
 
-    {3}\n'''.format('_'*42, username_login, message, '_'*42))
+    {4}\n\033[0m'''.format('_'*42, banners.logo[0], username_login, message, '_'*42))
 
 
-tamanhoU = 'tput cup 5 14'
-tamanhoP = 'tput cup 7 14 && tput cnorm'
+tamanhoU = 'tput cup 10 14'
+tamanhoP = 'tput cup 12 14 && tput cnorm'
 
 def posicaoU():
     system('{0}'.format(tamanhoU))
@@ -50,11 +49,15 @@ def loading_login():
     for step in steps:
         tamanhoCursor = 'tput civis'
         system('%s' % (tamanhoCursor))
-        cursor_end = 'tput cup 14'
+        cursor_end = 'tput cup 21'
         system('{0}'.format(cursor_end))
         print('\r    Loading... {0}'.format(step))
         sleep(0.2)
 
+    posicaoErro = 'tput cup 14 5 && tput civis'
+    system(posicaoErro)
+    message = "Acess Sucess"
+    print(message)
     visivel = 'tput cnorm'
     system(visivel)
     print('')
@@ -65,14 +68,14 @@ def login():
         open_file = list(open_file)
 
         global message
-        message = 'Acess Denied'
+        message = 'Acess denied'
         painel_1()
         posicaoU()
         global username_login
-        username_login = input()
+        username_login = input("\033[00;92m")
 
         while(username_login+'\n' != open_file[0]):
-            posicaoErro = 'tput cup 11 && tput civis'
+            posicaoErro = 'tput cup 16 && tput civis'
             system(posicaoErro)
             print('    Username inválid, try other')
             sleep(1.5)
@@ -84,17 +87,18 @@ def login():
                 painel_2()
                 posicaoP()
                 global password_login
-                password_login = input()
+                password_login = input("\033[00;92m")
 
                 while(password_login+'\n' != open_file[1]):
-                    posicaoErro = 'tput cup 11 && tput civis'
+                    posicaoErro = 'tput cup 16 && tput civis'
                     system(posicaoErro)
                     print('    Password inválid, try other')
                     sleep(1)
                     login_pass()
                 else:
-                    message = 'Acess sucessfuly'
                     loading_login()
+                    posicaoErro = 'tput cup 25 && tput cnorm'
+                    system(posicaoErro)
                     exit()
             login_pass()
 login()

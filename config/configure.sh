@@ -1,3 +1,8 @@
+
+if test ! -d $PREFIX/lib/python3.8/Sign-Ultimate;then
+echo "Erro ao executar, primeiro configure o login"
+exit
+else
 if test -e $HOME/.bashrc
 then
 	echo "mod" >> $HOME/.bashrc
@@ -21,3 +26,4 @@ do
 			exit
 	esac
 done
+fi
