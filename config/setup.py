@@ -79,7 +79,7 @@ def processLogin(system="termux"):
             counter += 1
             # 1
             if counter == 2:
-                if(link[4:22] == "https://termux.org"):
+                if(link[4:22] == "https://termux.org" or "https://termux.net"):
 
                     print("Configurando para sistema: {}".format(system))
                     def capture_input_user_var():
