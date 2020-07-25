@@ -63,8 +63,8 @@ def loading_login():
     print('')
 
 def login():
-    if(path.exists('.data.txt') == True):
-        open_file = open('.data.txt', 'r')
+    if(path.exists('/data/data/com.termux/files/home/Sign-Ultimate/config/login/.login.txt') == True):
+        open_file = open('/data/data/com.termux/files/home/Sign-Ultimate/config/login/.login.txt', 'r')
         open_file = list(open_file)
 
         global message
