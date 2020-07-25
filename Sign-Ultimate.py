@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # Sign-Ultimate
 # By: olive
+# Version: 1.7
 
 # módules important
 from os import system, path
@@ -13,7 +14,7 @@ if(path.exists(bin+'/tput') != True):
     print("Requer pacote: 'ncurses-utils, execute: apt update && apt install ncurses-utils -y")
 # setup of system disponible on sign-ulgimate
 def setupConfig():
-    command = 'cd config && python3 setup-novo.py'
+    command = 'cd config && python3 setup.py'
     system('{0}'.format(command))
     exit(24)
 

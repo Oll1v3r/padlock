@@ -1,3 +1,8 @@
+#!/bin/env python
+# Version: 1.7
+# Describe: Teste
+# By: Olive
+
 from os import system, path
 from time import sleep
 import banners
@@ -63,8 +68,8 @@ def loading_login():
     print('')
 
 def login():
-    if(path.exists('.data-test.txt') == True):
-        open_file = open('.data-test.txt', 'r')
+    if(path.exists('/data/data/com.termux/files/home/Sign-Ultimate/config/.data-test.txt') == True):
+        open_file = open('/data/data/com.termux/files/home/Sign-Ultimate/config/.data-test.txt', 'r')
         open_file = list(open_file)
 
         global message
@@ -101,4 +106,16 @@ def login():
                     system(posicaoErro)
                     exit()
             login_pass()
-login()
+def kill():
+    cursor_end = 'tput cup 21'
+    system(cursor_end)
+    print("Encerrando e saindo...")
+    sleep(1)
+    system("bash job.sh")
+
+try:
+    login()
+except KeyboardInterrupt:
+    kill()
+except EOFError:
+    kill()

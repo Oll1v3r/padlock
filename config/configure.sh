@@ -1,3 +1,7 @@
+#!/bin/env bash
+# Version: 1.7
+# Describe: Setup login in init
+# By: Olive
 
 if test ! -d $PREFIX/lib/python3.8/Sign-Ultimate;then
 
