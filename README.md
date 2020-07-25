@@ -17,6 +17,4 @@ Sign - sistema de login para Linux: em forma de janela gráfica. AVISO!  apenas 
 
 ![Image description](https://github.com/Oll1v3r/Sign-Ultimate/blob/master/config/images/Scren04.png)
 
-5 -
-
-![Image description](https://github.com/Oll1v3r/Sign-Ultimate/blob/master/config/images/Scren05.png)
+@ Copyright Oll1v3r 2020
