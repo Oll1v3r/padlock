@@ -8,10 +8,12 @@ from os import system, path
 from time import sleep
 import optparse
 
+
 # check packages
 bin='/data/data/com.termux/files/usr/bin'
 if(path.exists(bin+'/tput') != True):
     print("Requer pacote: 'ncurses-utils, execute: apt update && apt install ncurses-utils -y")
+    exit()
 # setup of system disponible on sign-ulgimate
 def setupConfig():
     command = 'cd config && python3 setup.py'
