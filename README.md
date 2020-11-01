@@ -31,8 +31,4 @@ padlock - sistema de login para distribuiçôes Linux: em forma de janela gráfi
 
 ![Image description](https://github.com/Oll1v3r/padlock/blob/master/src/media/painel-5.png)
 
-# painel *6*-
-
-![Image description](https://github.com/Oll1v3r/padlock/blob/master/src/media/painel-6.png)
-
 @ Copyright Oll1v3r 2020
