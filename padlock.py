@@ -91,7 +91,7 @@ Version     : 2.0
 
 Social Network:
 
-Fapage      : https://www.facebook.com/oliveobom
+Fanpage      : https://www.facebook.com/oliveobom
 Instagram   : https://www.instagram.com/laboratoriohacker
 Group t.m   : https://t.me/joinchat/O7iNwhsiTssYrN5NoNtHTw
 
