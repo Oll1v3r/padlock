@@ -10,7 +10,7 @@ Painel em processo:
 ![Image description](https://github.com/Oll1v3r/padlock/blob/master/src/media/painel-2.png)
 
 ----
-Setup:
+Script para cadastro:
 
 ![Image description](https://github.com/Oll1v3r/padlock/blob/master/src/media/setupRegister.png)
 
