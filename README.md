@@ -33,11 +33,13 @@ Opçôes:
 -----
 Exemplo:
 
------
+----
 padlock --setup termux	Para termux
 
------
+----
 padlock --setup	ubuntu	Para ubuntu
+
+---
 
 
 @ Copyright Oll1v3r 2020
