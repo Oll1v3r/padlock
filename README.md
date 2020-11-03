@@ -20,4 +20,21 @@ Resultado do cadastro:
 ![Image description](https://github.com/Oll1v3r/padlock/blob/master/src/media/setupRegistered.png)
 
 
+----
+Modo de uso do script:
+
+-----
+Opçôes:
+	--test		Permite testar o sistema antes de aplicar configuração
+	--setup		Define um sistema operacional linux para ser configurado
+	--undo		Desfaz a configuração aplicada anteriormente com o --setup
+
+
+-----
+Exemplo:
+
+padlock --setup termux	Para termux
+padlock --setup	ubuntu	Para ubuntu
+
+
 @ Copyright Oll1v3r 2020
