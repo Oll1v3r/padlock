@@ -33,7 +33,10 @@ Opçôes:
 -----
 Exemplo:
 
+-----
 padlock --setup termux	Para termux
+
+-----
 padlock --setup	ubuntu	Para ubuntu
 
 
