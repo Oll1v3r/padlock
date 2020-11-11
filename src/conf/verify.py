@@ -100,7 +100,7 @@ def sucess():
         time.sleep(0.1)
 
 def kill():
-    os.system('cd ~/padlock/src/bin/;bash ./killProcesses.sh')
+    os.system('cd ~/padlock/src/bin/;bash ./killProcesses')
 
 try:
     verify(username, password)

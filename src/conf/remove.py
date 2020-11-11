@@ -26,6 +26,7 @@ def removePadlock():
             system("sed -i '$s/run/#run/g' src/conf/verify.py")
             print('[+] Configuração removida com sucesso')
             sleep(1)
+            exit(0)
         else:
             print('[!] Ops, algo de errado aconteceu')
             exit()
