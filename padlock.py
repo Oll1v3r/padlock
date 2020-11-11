@@ -82,7 +82,7 @@ if args.undo:
 
 " shell "
 if args.shell:
-    os.system('bash src/bin/shell.sh')
+    os.system('bash src/bin/shell')
 
 else:
     os.system('figlet -f src/padlock/Remo773.flf Padlock')
