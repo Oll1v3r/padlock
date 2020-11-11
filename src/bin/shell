@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Describe: Verifica shell atual
+# License: MIT License
+# Version: 2.0
+# Author: Oliver
+
+# All processes running
+for process in $( ps -eo comm )
+do
+	case $process in
+		# If zsh is runnig, show the shell runnig
+		'zsh')
+			echo -e '\033[0m[\033[01;32m!\033[0m] Shell \033[01;91mZSH \033[0matualmente rodando'
+			break
+			;;
+		# If bash is running, show the shell running
+		'bash')
+			echo -e '\033[0m[\033[01;32m!\033[0m] Shell \033[01;91mBASH \033[0matualmente rodando'
+			break
+			;;
+		*)
+			# Nothing
+			;;
+	esac
+done

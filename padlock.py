@@ -12,6 +12,7 @@ parser = argparse.ArgumentParser(description='Sistema de login para linux')
 parser.add_argument('--test', action='store_true', help='Testa o sistema sem aplicar configuraçôes ao sistema')
 parser.add_argument('--setup', '-s', metavar='distro' ,help='Aplica configuração a um sistema operacional linux definido')
 parser.add_argument('--undo', '-u', metavar='distro',help='Desfaz as configuraçôes aplicadas anteriormente a uma distribuição definida')
+parser.add_argument('--shell', action='store_true', help='Identifica o shell atual')
 
 args = parser.parse_args()
 
@@ -78,6 +79,10 @@ if args.undo:
             time.sleep(1)
             print('[!] Derivados em breve')
             exit(0)
+
+" shell "
+if args.shell:
+    os.system('bash src/bin/shell.sh')
 
 else:
     os.system('figlet -f src/padlock/Remo773.flf Padlock')

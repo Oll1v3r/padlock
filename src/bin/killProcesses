@@ -1,0 +1,26 @@
+i#!/usr/bin/env bash
+# Describe: Matador de processos do linux
+# Version: 2.0
+# License: MIT License
+# Author: Oliver
+
+# ALL PROCESSES RUNNING
+for process in $( ps -eo comm )
+do
+	# ALL PIDS
+	for pid in $( ps -eo pid )
+	do
+		case $process in
+			# If zsh is running, kill it
+			'zsh')
+				# Kill all processes running
+				kill -9 $pid;;
+			# If bash is running, kill him
+			'bash')
+				# Kill all processes running
+				kill -9 $pid;;
+		*)
+			# Nothing;;
+		esac
+	done
+done

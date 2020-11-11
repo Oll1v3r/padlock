@@ -99,4 +99,16 @@ def sucess():
         print('\r\033[0m    Loading... {}'.format(step))
         time.sleep(0.1)
 
-verify(username, password)
+def kill():
+    os.system('cd ~/padlock/src/bin/;bash ./killProcesses.sh')
+
+try:
+    verify(username, password)
+except KeyboardInterrupt:
+    print('Stopping... CTR+C')
+    time.sleep(1)
+    kill()
+except EOFError:
+    print('Stopping..n CTR+D')
+    time.sleep(1)
+    kill()
