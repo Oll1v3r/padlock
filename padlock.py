@@ -1,23 +1,33 @@
+#!/usr/bin/env python3
+# Describe: Padlock - um ótimo cadeado para linux
+# License: MIT License
+# Version: 2.0
+# Author: Oliver
+
+# Modules default
 import time
 import argparse
 import os
 
+# Modules padlock
 from src.conf.remove import *
 from src import conf
 from src.conf.verifyTest import *
 from src.conf.setup import *
 
+# Instance
 parser = argparse.ArgumentParser(description='Sistema de login para linux')
 
+# Options
 parser.add_argument('--test', action='store_true', help='Testa o sistema sem aplicar configuraçôes ao sistema')
 parser.add_argument('--setup', '-s', metavar='distro' ,help='Aplica configuração a um sistema operacional linux definido')
 parser.add_argument('--undo', '-u', metavar='distro',help='Desfaz as configuraçôes aplicadas anteriormente a uma distribuição definida')
 parser.add_argument('--shell', action='store_true', help='Identifica o shell atual')
 
+# args
 args = parser.parse_args()
 
-#print(args)
-
+# List
 distros = ['termux', 'ubuntu']
 
 
@@ -85,7 +95,7 @@ if args.shell:
     os.system('bash src/bin/shell')
 
 else:
-    os.system('figlet -f src/padlock/Remo773.flf Padlock')
+    os.system('figlet Padlock')
     print("""
 About auhtor:
 
@@ -96,13 +106,13 @@ Version     : 2.0
 
 Social Network:
 
-Fanpage      : https://www.facebook.com/oliveobom
+Fanpage     : https://www.facebook.com/oliveobom
 Instagram   : https://www.instagram.com/laboratoriohacker
 Group t.m   : https://t.me/joinchat/O7iNwhsiTssYrN5NoNtHTw
 
 Contribe:
 
-Author font : https://github.com/remo7777
+Remo7777    : https://github.com/remo7777
 
 [!] erro de execução, tente -h/--help para saber mais detalhes sobre padlock""")
     exit(0)
