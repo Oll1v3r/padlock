@@ -23,6 +23,7 @@ parser.add_argument('--test', action='store_true', help='Testa o sistema sem apl
 parser.add_argument('--setup', '-s', metavar='distro' ,help='Aplica configuração a um sistema operacional linux definido')
 parser.add_argument('--undo', '-u', metavar='distro',help='Desfaz as configuraçôes aplicadas anteriormente a uma distribuição definida')
 parser.add_argument('--shell', action='store_true', help='Identifica o shell atual')
+"parser.add_argument('--change-flag', action='store_true', help='Alterar a bandeira do padlock')"
 
 # args
 args = parser.parse_args()
@@ -93,6 +94,7 @@ if args.undo:
 " shell "
 if args.shell:
     os.system('bash src/bin/shell')
+
 
 else:
     os.system('figlet Padlock')

@@ -7,6 +7,7 @@
 from os import system, path, getenv
 from time import sleep, localtime
 import dotenv
+from shutil import get_terminal_size
 
 dotenv.load_dotenv()
 
@@ -14,6 +15,16 @@ username = getenv('username')
 password = getenv('password')
 
 date = localtime()
+
+width = get_terminal_size()[0]
+
+if (width < 54):
+    system('clear')
+    print('\033[0m[\033[02;92m!\033[0m] \033[01;96mÉ Recomendado aumentar o zoom da tela para ter a melhor experiência\033[0m\n')
+
+elif (width >= 64):
+    system('clear')
+    print('\033[0m[\033[02;92m!\033[0m] \033[01;96mÉ Recomendado a não aumentar muito o zoom\033[0m\n')
 
 def checkConf():
 
