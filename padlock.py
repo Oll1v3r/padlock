@@ -4,10 +4,19 @@
 # Version: 2.0
 # Author: Oliver
 
-# Modules default
+try:
+    import dotenv
+except ModuleNotFoundError as package:
+    print('{}'.format(package))
+    exit(1)
+
 import time
 import argparse
 import os
+
+if os.path.exists('/data/data/com.termux/files/usr/bin/tput') == False:
+    print("No package named '{}'".format('ncurses-utils'))
+    exit(1)
 
 # Modules padlock
 from src.conf.remove import *
