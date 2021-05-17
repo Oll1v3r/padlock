@@ -114,6 +114,7 @@ def writerData(username, password):
 
     print('\033[0m')
     _File = '.env'
+
     with open(_File, 'w') as envFile, open('.log', 'w') as logFile:
         " Escrever dados cadastrado "
         envFile.write("username='{}'\n".format(username))
@@ -231,7 +232,7 @@ def writerData(username, password):
 
         elif path.exists(home+'storage/') == False:
             print('Allow access to internal memory')
-            sleep(1)
+            sleep(4)
             system('termux-setup-storage')
             " Escrever 'registro.txt' "
             system('tput cup 1')
